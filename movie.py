@@ -90,4 +90,4 @@ class Movie:
         return self.title
 
     def get_price_code(self):
-        return self.price_strategy  # You can customize this method to return specific codes if needed
+        return self.price_strategy
