@@ -52,3 +52,19 @@ class CustomerTest(unittest.TestCase):
 
         expected_total = 12.0 + 6.5 + 3.0
         self.assertEqual(self.c.total_amount(), expected_total)
+
+    def test_total_rental_points(self):
+        # No rentals yet
+        self.assertEqual(self.c.total_rental_points(), 0)
+
+        # Add a new release rental (4 days)
+        self.c.add_rental(Rental(self.new_movie, 4))
+        self.assertEqual(self.c.total_rental_points(), 4)
+
+        # Add a regular rental (5 days)
+        self.c.add_rental(Rental(self.regular_movie, 5))
+        self.assertEqual(self.c.total_rental_points(), 5)
+
+        # Add a children's rental (2 days)
+        self.c.add_rental(Rental(self.childrens_movie, 2))
+        self.assertEqual(self.c.total_rental_points(), 6)
