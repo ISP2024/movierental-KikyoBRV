@@ -1,6 +1,3 @@
-from movie import Movie
-import logging
-
 class Rental:
     """A rental of a movie by a customer."""
 
