@@ -19,19 +19,18 @@ class RentalTest(unittest.TestCase):
 
 	def test_rental_price(self):
 		"""Test price calculation for different movie categories and rental durations"""
-		# Test new release movie pricing
 		rental = Rental(self.new_movie, 1)
 		self.assertEqual(rental.get_price(), 3.0)
 		rental = Rental(self.new_movie, 5)
 		self.assertEqual(rental.get_price(), 15.0)
 
-		# Test regular movie pricing
+		#Test regular movie pricing
 		rental = Rental(self.regular_movie,2)
 		self.assertEqual(rental.get_price(), 2.0)
 		rental = Rental(self.regular_movie,4)
 		self.assertEqual(rental.get_price(),5.0)
 
-		# Test children's movie pricing
+		#Test children's movie pricing
 		rental = Rental(self.childrens_movie,3)
 		self.assertEqual(rental.get_price(), 1.5)
 		rental = Rental(self.childrens_movie,5)
