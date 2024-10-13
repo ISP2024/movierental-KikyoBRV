@@ -1,8 +1,14 @@
 from abc import ABC, abstractmethod
 
-
 class PriceStrategy(ABC):
     """Abstract base class for rental pricing."""
+    _instances = {}
+
+    def __new__(cls, *args, **kwargs):
+        if cls not in cls._instances:
+            instance = super(PriceStrategy, cls).__new__(cls)
+            cls._instances[cls] = instance
+        return cls._instances[cls]
 
     @abstractmethod
     def get_price(self, days: int) -> float:
