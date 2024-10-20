@@ -4,17 +4,17 @@ from typing import Collection
 from dataclasses import dataclass
 
 class MovieCatalog:
-    _instances = None
+    __instances = None
 
     def __new__(cls):
         """Create a new MovieCatalog if not already exist."""
-        if cls._instances is None:
-            cls._instances = super(MovieCatalog, cls).__new__(cls)
-            cls._instances._movie_list = cls.load_movie_data()
-        return cls._instances
+        if cls.__instances is None:
+            cls.__instances = super(MovieCatalog, cls).__new__(cls)
+            cls.__instances._movie_list = cls.__load_movie_data()
+        return cls.__instances
 
     @staticmethod
-    def load_movie_data():
+    def __load_movie_data():
         """Load movie data from a CSV file."""
         movies = []
         with open("movies.csv", encoding="utf-8") as movie_file:
@@ -34,6 +34,7 @@ class MovieCatalog:
         return movies
 
     def get_movie(self, title, year=None):
+        """Get movie by title and year."""
         for movie in self._movie_list:
             if title.lower() == movie.title.lower() and (not year or year == movie.year):
                 return movie
