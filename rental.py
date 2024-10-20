@@ -1,6 +1,6 @@
 from datetime import datetime
 
-from pricing import PriceStrategy,NewRelease,RegularPrice,ChildrensPrice
+from pricing import NewRelease,RegularPrice,ChildrensPrice
 
 NEW_RELEASE = NewRelease()
 REGULAR = RegularPrice()

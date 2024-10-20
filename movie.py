@@ -1,5 +1,4 @@
 import csv
-from calendar import month
 from typing import Collection
 from dataclasses import dataclass
 
