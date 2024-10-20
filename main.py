@@ -10,8 +10,9 @@ def make_movies():
     """Some sample movies."""
     catalog = MovieCatalog()
     movies = [
-        catalog.get_movie("Steve Jobs"),
-        catalog.get_movie("Batman v Superman: Dawn of Justice"),
+        catalog.get_movie("Young Woman and the Sea"),
+        catalog.get_movie("Cinderella"),
+        catalog.get_movie("Son of Saul"),
         catalog.get_movie("Air"),
     ]
     return movies
