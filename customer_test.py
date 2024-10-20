@@ -15,12 +15,13 @@ class CustomerTest(unittest.TestCase):
         movies = list of some movies
         """
         self.c = Customer("Movie Mogul")
-        self.new_movie = Movie("Mulan", Movie.NEW_RELEASE)
-        self.regular_movie = Movie("CitizenFour", Movie.REGULAR)
-        self.childrens_movie = Movie("Frozen", Movie.CHILDRENS)
+        self.new_movie = Movie("Mulan", 2024, ["Action", "Adventure"])
+        self.regular_movie = Movie("CitizenFour", 2014,
+                                   ["Documentary", "Thriller"])
+        self.childrens_movie = Movie("Frozen", 2013, ["Children", "Animation"])
 
     @unittest.skip("No convenient way to test")
-    def test_billing():
+    def test_billing(self):
         # no convenient way to test billing since its buried in the statement() method.
         pass
 
@@ -31,6 +32,7 @@ class CustomerTest(unittest.TestCase):
         matches = re.match(pattern, stmt, flags=re.DOTALL)
         self.assertIsNotNone(matches)
         self.assertEqual("0.00", matches[1])
+
         # add a rental
         self.c.add_rental(Rental(self.new_movie, 4))  # days
         stmt = self.c.statement()
@@ -45,7 +47,7 @@ class CustomerTest(unittest.TestCase):
         # Add rentals
         rental1 = Rental(self.new_movie, 4)
         rental2 = Rental(self.regular_movie, 5)
-        rental3 = Rental(self.childrens_movie,4)
+        rental3 = Rental(self.childrens_movie, 4)
         self.c.add_rental(rental1)
         self.c.add_rental(rental2)
         self.c.add_rental(rental3)
