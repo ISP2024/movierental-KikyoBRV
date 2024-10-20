@@ -1,30 +1,24 @@
 from typing import Collection
 
-from pricing import PriceStrategy,NewRelease,RegularPrice,ChildrensPrice
+from pricing import PriceStrategy
+from dataclasses import dataclass
 
-# Define instances of the strategies as named constants
-NEW_RELEASE = NewRelease()
-REGULAR = RegularPrice()
-CHILDREN = ChildrensPrice()
-
-
+@dataclass(frozen=True)
 class Movie:
     """A movie that can be rented."""
 
-    REGULAR = REGULAR
-    CHILDRENS = CHILDREN
-    NEW_RELEASE = NEW_RELEASE
-
-    def __init__(self, title: str, year: int, genre: Collection[str]):
-        self.title = title
-        self.year = year
-        self.genre = genre
+    title: str
+    price_strategy: PriceStrategy
+    year: int
+    genres: Collection[str]
 
     def get_title(self) -> str:
+        """Get the title of the movie."""
         return self.title
 
     def is_genre(self, string: str) -> bool:
-        return string.lower() in self.genre
+        """Check if the string is in a collection of genres"""
+        return string.lower() in self.genres
 
     def __str__(self) -> str:
         return f" {self.title} ({self.year})"
