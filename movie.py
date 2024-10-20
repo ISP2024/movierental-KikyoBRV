@@ -17,11 +17,6 @@ class Movie:
         self.title = title
         self.price_strategy = price_strategy
 
-    def get_price(self, days: int) -> float:
-        return self.price_strategy.get_price(days)
-
-    def get_rental_points(self, days: int) -> int:
-        return self.price_strategy.get_rental_points(days)
 
     def get_title(self) -> str:
         return self.title
