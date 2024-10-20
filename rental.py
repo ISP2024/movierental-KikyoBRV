@@ -28,3 +28,6 @@ class Rental:
         """Delegates to the movie to get the rental points."""
         return self.price_code.get_rental_points(self.days_rented)
 
+    def get_price_code(self):
+        return self.price_code
+
