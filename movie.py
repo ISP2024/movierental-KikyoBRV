@@ -3,6 +3,10 @@ import logging
 from typing import Collection
 from dataclasses import dataclass
 
+logging.basicConfig(level=logging.ERROR, filename="logging.txt", filemode="w")
+LOGGER = logging.getLogger("error_log")
+LOGGER.addHandler(logging.StreamHandler())
+
 class MovieCatalog:
     __instances = None
 
