@@ -26,3 +26,9 @@ Feature Envy
 ### 2.2 what design principle suggests this refactoring? Why?
 Single Responsibility Principle, because Movie class shouldn't handle the rental price and rental point by itself. 
 So, moving it to Rental class that responsible for handle everything related to a rental is more reasonable.
+
+### 5.2 Decide where price_code_for_movie should be implemented. It can be a class method or top-level function in an existing module. The choices are
+I choose to add price_code_for_movie as a classmethod in Rental class cause I think that this class need this method to 
+set the price.
+
+design principles: Single Responsibility Principle. (choose a class/module that is “responsible” to the actor who sets prices)
