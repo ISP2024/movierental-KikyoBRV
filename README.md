@@ -18,3 +18,11 @@ Before and after each refactoring you should **run the unit tests**.
 
 See [Resources](https://cpske.github.io/ISP/assignment/movierental/movierental-part1#resources) in the assignment description.
 
+## Rational
+
+### 2.1 what refactoring signs (code smells) suggest this refactoring?
+Feature Envy
+
+### 2.2 what design principle suggests this refactoring? Why?
+Single Responsibility Principle, because Movie class shouldn't handle the rental price and rental point by itself. 
+So, moving it to Rental class that responsible for handle everything related to a rental is more reasonable.
