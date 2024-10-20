@@ -9,10 +9,10 @@ CHILDREN = ChildrensPrice()
 class Rental:
     """A rental of a movie by a customer."""
 
-    def __init__(self, movie, days_rented, price_code: PriceStrategy):
+    def __init__(self, movie, days_rented):
         self.movie = movie
         self.days_rented = days_rented
-        self.price_code = price_code
+        self.price_code = self.price_code_for_movie(movie)
 
     @classmethod
     def price_code_for_movie(cls, movie):
