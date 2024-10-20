@@ -1,6 +1,5 @@
 from typing import Collection
 
-from pricing import PriceStrategy
 from dataclasses import dataclass
 
 @dataclass(frozen=True)
@@ -8,7 +7,6 @@ class Movie:
     """A movie that can be rented."""
 
     title: str
-    price_strategy: PriceStrategy
     year: int
     genres: Collection[str]
 
